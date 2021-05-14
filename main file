@@ -18,10 +18,11 @@ while user_input == "n":
     print("Do you want to view the article titled: ", article_title,
           "\n(Y/N)\n")
     user_input = input("").lower()
-
+    
+    #adding second while loop in case the user's input does not match the options provided to them
+    while user_input != "y" and user_input != "n":
+        print("Wrong input, try again")
+    
     if user_input == "y":
         article_url = "https://en.wikipedia.org/wiki/%s" % article_title
         webbrowser.open(article_url)
-    elif user_input != "y" and user_input != "n":
-        print("Wrong input, try again")
-
