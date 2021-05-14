@@ -1,8 +1,7 @@
 #Program to generate random wikipedia article using the BeautifulSoup module
-import requests
-from bs4 import BeautifulSoup
-import webbrowser
-
+import requests #this module allows the program to access web urls
+from bs4 import BeautifulSoup #this module is to parse through the web content and allows us to store it in a variable
+import webbrowser #this modules is to be able to access the user's default browser and open a webpage on it
 
 #Defining the variables to be used in the while loop as they do not
 #have to be redefined with each iteration of the loop
