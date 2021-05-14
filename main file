@@ -1,0 +1,28 @@
+#Program to generate random wikipedia article using the BeautifulSoup module
+import requests
+from bs4 import BeautifulSoup
+import webbrowser
+
+
+#Defining the variables to be used in the while loop as they do not
+#have to be redefined with each iteration of the loop
+url = "https://en.wikipedia.org/wiki/Special:Random"
+user_input = "n"
+
+#Setting up the while loop as user's input (Y/N)
+#will determine whether a new article is presented or not
+
+while user_input == "n":
+    results = requests.get(url)
+    soup = BeautifulSoup(results.content, "html.parser")
+    article_title = soup.find(class_ = "firstHeading").text
+    print("Do you want to view the article titled: ", article_title,
+          "\n(Y/N)\n")
+    user_input = input("").lower()
+
+    if user_input == "y":
+        article_url = "https://en.wikipedia.org/wiki/%s" % article_title
+        webbrowser.open(article_url)
+    elif user_input != "y" and user_input != "n":
+        print("Wrong input, try again")
+
